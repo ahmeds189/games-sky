@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { AppShell, Navbar, Header, Footer, useMantineTheme } from '@mantine/core'
-import { NavbarContent } from './components'
+import { NavbarContent, Games } from './components'
 
 export default function Layout({ toggleColorScheme }) {
 	const theme = useMantineTheme()
@@ -35,6 +35,8 @@ export default function Layout({ toggleColorScheme }) {
 						setOpened={setOpened}
 					/>
 				</Header>
-			}></AppShell>
+			}>
+			<Games />
+		</AppShell>
 	)
 }
