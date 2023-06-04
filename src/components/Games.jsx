@@ -1,28 +1,15 @@
-import { Group, Skeleton } from '@mantine/core'
 import useGames from '../hooks/useGames'
-import GameCard from './GameCard'
+import { SkeletonCard, GameCard } from './'
 
 export default function Games() {
 	const { data, isLoading, isError, error } = useGames()
 
-	const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+	if (isError) return <h1>{error.message}</h1>
 
 	if (isLoading)
-		return Array.from({ length: 20 }, (_, i) => (
-			<>
-				<Skeleton height={50} circle mb="xl" />
-				<Skeleton height={8} radius="xl" />
-				<Skeleton height={8} mt={6} radius="xl" />
-				<Skeleton height={8} mt={6} width="70%" radius="xl" />
-			</>
-		))
-	if (isError) return <pre>{error.message}</pre>
+		return Array(10)
+			.fill(0)
+			.map((_, i) => <SkeletonCard key={i} />)
 
-	return (
-		<Group>
-			{data.results.map(({ name, rating, background_image, id }) => (
-				<GameCard key={id} title={name} rating={rating} image={background_image} />
-			))}
-		</Group>
-	)
+	return data.map((game) => <GameCard data={game} key={game.id} />)
 }
