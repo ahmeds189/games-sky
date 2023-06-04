@@ -1,18 +1,18 @@
-import { Card, Group, Skeleton } from '@mantine/core'
+import { Card, Skeleton, Flex } from '@mantine/core'
 
 export default function SkeletonCard() {
 	return (
-		<Card shadow="sm" padding="md" radius="md" withBorder w={300}>
+		<Card shadow="sm" padding="md" radius="md" withBorder>
 			<Card.Section>
 				<Skeleton height={180} />
 			</Card.Section>
 
-			<Group position="apart" mt="md" mb="xs">
+			<Flex gap="sm" justify="flex-start" align="flex-start" direction="column" my="lg">
 				<Skeleton height={20} width="75%" />
 				<Skeleton height={20} width="15%" />
-			</Group>
+			</Flex>
 
-			<Skeleton height={40} mt={32} />
+			<Skeleton height={35} />
 		</Card>
 	)
 }
