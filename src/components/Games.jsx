@@ -1,4 +1,4 @@
-import { Flex, SimpleGrid } from '@mantine/core'
+import { SimpleGrid } from '@mantine/core'
 import useGames from '../hooks/useGames'
 import { SkeletonCard, GameCard } from './'
 
