@@ -8,7 +8,7 @@ const getGenres = async () => {
 	return data.results
 }
 
-export default function useGames() {
+export default function useGenres() {
 	return useQuery({
 		queryKey: ['genres'],
 		queryFn: getGenres,
