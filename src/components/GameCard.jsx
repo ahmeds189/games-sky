@@ -9,6 +9,7 @@ import {
 	FaAppStoreIos,
 } from 'react-icons/fa'
 import { BsNintendoSwitch, BsGlobe } from 'react-icons/bs'
+import { getCroppedImage } from '../utils/imageUrl'
 
 const PlatformsList = ({ slug }) => {
 	switch (slug) {
@@ -39,7 +40,11 @@ export default function GameCard({ data }) {
 	return (
 		<Card shadow="sm" padding="8px" radius="md" withBorder>
 			<Card.Section>
-				<Image src={background_image} height={180} alt={`a poster of ${name}`} />
+				<Image
+					src={getCroppedImage(background_image)}
+					height={180}
+					alt={`a poster of ${name}`}
+				/>
 			</Card.Section>
 
 			<Flex gap="sm" justify="flex-start" align="flex-start" direction="column" my="lg">
@@ -54,6 +59,7 @@ export default function GameCard({ data }) {
 			<Flex gap={0} wrap="wrap" my="lg">
 				{parent_platforms.map(({ platform }) => (
 					<Avatar
+						key={platform.id}
 						color="indigo"
 						p={4}
 						radius="md"
