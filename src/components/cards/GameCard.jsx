@@ -9,7 +9,7 @@ import {
 	FaAppStoreIos,
 } from 'react-icons/fa'
 import { BsNintendoSwitch, BsGlobe } from 'react-icons/bs'
-import { getCroppedImage } from '../utils/imageUrl'
+import { getCroppedImage } from '../../utils/imageUrl'
 
 const PlatformsList = ({ slug }) => {
 	switch (slug) {

@@ -1,5 +1,5 @@
-import { SimpleGrid } from '@mantine/core'
 import useGames from '../hooks/useGames'
+import { SimpleGrid } from '@mantine/core'
 import { SkeletonGameCard, GameCard } from './'
 
 export default function Games() {

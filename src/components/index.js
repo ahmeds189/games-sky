@@ -1,4 +1,7 @@
-export { default as HeaderContent } from './HeaderContent'
+export { default as HeaderContent } from './ui/HeaderContent'
+export { default as NavbarContent } from './ui/NavbarContent'
+
+export { default as GameCard } from './cards/GameCard'
+export { default as SkeletonGameCard } from './skeletons/SkeletonGameCard'
+
 export { default as Games } from './Games'
-export { default as GameCard } from './GameCard'
-export { default as SkeletonGameCard } from './SkeletonGameCard'
