@@ -1,6 +1,6 @@
 import { SimpleGrid } from '@mantine/core'
 import useGames from '../hooks/useGames'
-import { SkeletonCard, GameCard } from './'
+import { SkeletonGameCard, GameCard } from './'
 
 export default function Games() {
 	const { data, isLoading, isError, error } = useGames()
@@ -19,7 +19,7 @@ export default function Games() {
 			{isLoading
 				? Array(20)
 						.fill(0)
-						.map((_, i) => <SkeletonCard key={i} />)
+						.map((_, i) => <SkeletonGameCard key={i} />)
 				: data.map((game) => <GameCard data={game} key={game.id} />)}
 		</SimpleGrid>
 	)

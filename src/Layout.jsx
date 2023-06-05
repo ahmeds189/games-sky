@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { AppShell, Navbar, Header, useMantineTheme } from '@mantine/core'
-import { NavbarContent, Games } from './components'
+import { HeaderContent, Games } from './components'
 
 export default function Layout({ toggleColorScheme }) {
 	const theme = useMantineTheme()
@@ -23,7 +23,7 @@ export default function Layout({ toggleColorScheme }) {
 			}
 			header={
 				<Header height={{ base: 60, md: 70 }}>
-					<NavbarContent
+					<HeaderContent
 						theme={theme}
 						opened={opened}
 						toggleColorScheme={toggleColorScheme}
