@@ -48,9 +48,7 @@ export default function GameCard({ data }) {
 			</Card.Section>
 
 			<Flex gap="sm" justify="flex-start" align="flex-start" direction="column" my="lg">
-				<Text weight={600} color="#efefef">
-					{name}
-				</Text>
+				<Text weight={600}>{name}</Text>
 				<Badge color="green" variant="light" fz={14} p="5px 8px">
 					{rating}
 				</Badge>
