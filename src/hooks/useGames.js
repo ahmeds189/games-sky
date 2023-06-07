@@ -1,16 +1,9 @@
 import { useQuery } from '@tanstack/react-query'
-import axios from 'axios'
+import apiClient from '../utils/apiClient'
 
-const getGames = async () => {
-	const { data } = await axios.get(
-		`https://api.rawg.io/api/games?key=${import.meta.env.VITE_API_KEY}`
-	)
-	return data.results
-}
-
-export default function useGames() {
+export default function useGames(gameQuery) {
 	return useQuery({
-		queryKey: ['games'],
-		queryFn: getGames,
+		queryKey: ['games', gameQuery],
+		queryFn: () => apiClient.get('/games').then((res) => res.data.results),
 	})
 }

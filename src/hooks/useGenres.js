@@ -1,16 +1,10 @@
 import { useQuery } from '@tanstack/react-query'
-import axios from 'axios'
-
-const getGenres = async () => {
-	const { data } = await axios.get(
-		`https://api.rawg.io/api/genres?key=${import.meta.env.VITE_API_KEY}`
-	)
-	return data.results
-}
+import apiClient from '../utils/apiClient'
 
 export default function useGenres() {
 	return useQuery({
 		queryKey: ['genres'],
-		queryFn: getGenres,
+		queryFn: () => apiClient.get('/genres').then((res) => res.data.results),
+		staleTime: 24 * 60 * 60 * 1000, // 24hours
 	})
 }

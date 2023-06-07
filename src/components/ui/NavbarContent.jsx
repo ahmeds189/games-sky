@@ -1,15 +1,15 @@
+import { SimpleGrid } from '@mantine/core'
+import { GenreCard } from '../index'
 import useGenres from '../../hooks/useGenres'
 
 export default function NavbarContent() {
-	const { data, isLoading } = useGenres()
-
-	if (isLoading) return <h1>Loading...</h1>
+	const { data } = useGenres()
 
 	return (
-		<ul>
-			{data.map((gen) => (
-				<li key={gen.id}>{gen.name}</li>
-			))}
-		</ul>
+		<div>
+			<SimpleGrid cols={1} spacing={4}>
+				{data && data.map((genre) => <GenreCard genre={genre} key={genre.id} />)}
+			</SimpleGrid>
+		</div>
 	)
 }
